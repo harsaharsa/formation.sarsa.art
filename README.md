@@ -30,15 +30,17 @@ glasses sigil.
 
 ## Fill these before going live
 
-Only three real unknowns remain — the rest now carry concrete defaults that
-counsel should confirm rather than invent.
+One real unknown remains — the rest now carry concrete values.
 
-- **Registry code** (registrikood) — `index.html` imprint, `contact.html`,
-  `terms.html`, `privacy.html`.
-- **Registered office address** — same places.
-- **VAT number** — `contact.html`, if registered.
-- **Service hosting provider** — `privacy.html` §3 (where Chora itself runs;
-  the *website* is on GitHub Pages and is already listed).
+- **VAT number** — `contact.html` still flags "confirm VAT status." A newly
+  formed OÜ under the Estonian threshold need not be VAT-registered; confirm,
+  and if it is registered, add the number in `contact.html`.
+
+Written in from the e-Business Register: **registry code 17290516**, registered
+**28 July 2025**, office **Lõõtsa tn 1a, 11415 Tallinn** — across the imprint
+(`index.html`, `contact.html`) and the legal pages (`terms.html`,
+`privacy.html`), plus the `index.html` structured data. Chora's service hosting
+(**Fly.io** compute, **Neon** Postgres) is named in `privacy.html` §3.
 
 Decided and written in: liability cap **12 months** (`terms.html` §8);
 withdrawal **14 days** and response SLA **5 business days** (`refunds.html`);
