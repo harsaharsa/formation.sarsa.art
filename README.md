@@ -11,10 +11,10 @@ glasses sigil.
 | File | Purpose |
 |------|---------|
 | `index.html` | Chora landing — what it is, the Sana lesson, built on Claude, access & pricing (prepaid credits **or** subscription), company imprint |
-| `terms.html` | Terms of Service — **DRAFT** |
-| `privacy.html` | Privacy Policy (GDPR) — **DRAFT** |
-| `refunds.html` | Refund Policy — **DRAFT** |
-| `contact.html` | Company details / contact — **DRAFT** |
+| `terms.html` | Terms of Service (Estonian law; B2C/B2B split) |
+| `privacy.html` | Privacy Policy (GDPR) |
+| `refunds.html` | Refund & cancellation policy (credits + subscriptions) |
+| `contact.html` | Company details / contact / imprint |
 | `styles.css` | Shared styles |
 | `CNAME` | `formation.sarsa.art` (GitHub Pages custom domain) |
 | `.nojekyll` | Serve files as-is |
@@ -24,9 +24,35 @@ glasses sigil.
 1. ✅ Repo `harsaharsa/formation.sarsa.art` created and pushed to `main`.
 2. ✅ Pages enabled: source `main` / root, custom domain `formation.sarsa.art`
    (read from the `CNAME` file).
-3. ⬜ **DNS** — at **Porkbun** (where `sarsa.art` is hosted): add a `CNAME`
-   record `formation` → `harsaharsa.github.io`. Once it resolves, GitHub
-   verifies the domain and *Enforce HTTPS* becomes tickable.
+3. ✅ **DNS** — at **Porkbun**: `CNAME formation` → `harsaharsa.github.io`.
+4. ✅ **HTTPS enforced.** Let's Encrypt cert `CN=formation.sarsa.art`, issued
+   2026-07-10, expires 2026-10-08. `http://` now `301`s to `https://`.
+
+> **Gotcha, if this ever recurs:** GitHub requests the TLS certificate at the
+> moment the custom domain is *set*. The domain was set before the DNS record
+> existed, so the check failed and was **never retried** — it sat at
+> `cert: none` indefinitely, not for the documented 24h. Fix: remove and re-add
+> the custom domain once DNS resolves (`gh api -X PUT .../pages -F cname=null`,
+> then re-`PUT` it). The site stays up and the `CNAME` file is untouched.
+
+Still open: the domain shows `protected_domain_state: unverified`. Add a TXT
+record named `_github-pages-challenge-harsaharsa` at `sarsa.art` with the token
+from <https://github.com/settings/pages> to prevent subdomain takeover. (An
+earlier attempt put the *record name* in as the record **value** at the apex —
+delete that stray TXT.)
+
+## Email
+
+`harri@sarsa.art` — `sarsa.art` is a **user alias domain** on the existing
+`regenesis.one` Google Workspace, so it is the same mailbox and costs no extra
+seat. (A *secondary* domain would have needed a new paid user and cannot be an
+alternate address for an existing one; that distinction is the whole trick.)
+
+⬜ **Mail auth still incomplete for sending as `@sarsa.art`:**
+- SPF is **missing** at `sarsa.art` — add TXT `v=spf1 include:_spf.google.com ~all`
+- DMARC is missing on **both** domains — start with TXT at `_dmarc.sarsa.art`:
+  `v=DMARC1; p=none; rua=mailto:harri@sarsa.art`
+- DKIM is already published at `google._domainkey.sarsa.art` ✅
 
 ## Fill these before going live
 
@@ -82,18 +108,25 @@ checkout must actually implement the express-consent + acknowledgment flow that
 - [ ] Create/complete the Stripe account for **Sarsa Formation OÜ** (business
       type: company; Estonia). *(Your account + banking details — not something
       I can do for you.)*
-- [ ] Public business URL: `https://formation.sarsa.art`.
-- [ ] Reachable **Terms**, **Privacy**, **Refunds**, **Contact** — done (finalise drafts).
+- [x] Public business URL: `https://formation.sarsa.art` — live, HTTPS enforced.
+- [x] Reachable **Terms**, **Privacy**, **Refunds**, **Contact** — live, no draft banners.
 - [ ] Clear description of what's sold and the **pricing model** (prepaid
       credits and subscriptions) — done on the landing page. If you enable
       Stripe Billing, subscription cancellation and renewal terms are already
       written into `terms.html` §3 and `refunds.html` §3.
-- [ ] Registered business name + address matching the imprint.
-- [ ] Statement descriptor + support email (`harri@regenesis.one`).
+- [x] Registered business name + address matching the imprint (17290516,
+      Lõõtsa tn 1a, 11415 Tallinn).
+- [ ] Statement descriptor + support email (`harri@sarsa.art`).
+- [ ] ⚠️ **Build the checkout consent flow before enabling billing.**
+      `refunds.html` §4 promises that Stripe collects an express request for
+      immediate performance plus an acknowledgment that full performance ends
+      the withdrawal right. Until that exists, the page describes a thing that
+      does not.
 
 ## Anthropic Startup Program checklist
 
-- [ ] **Claude Console** account (API console, not the chat app) + company email.
+- [ ] **Claude Console** account (API console, not the chat app) — use the
+      company email `harri@sarsa.art`.
 - [ ] Company website: `https://formation.sarsa.art` — done.
 - [ ] Short "what you're building" description — the landing copy works as a base.
 - [ ] Apply: <https://claude.com/programs/startups>.
