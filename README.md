@@ -48,9 +48,14 @@ retention **12 months / 12 months / 7 years** (`privacy.html` §4). Billing
 covers **prepaid credits and subscriptions** across `index`, `terms` §3, and
 `refunds`.
 
-Then **remove the DRAFT banners** — after Estonian/EU counsel reviews the four
-legal pages, not before. Do not submit to Stripe while the banners are up: a
-reviewer reading "not yet legally reviewed" on your Terms is a decline.
+**DRAFT banners removed 2026-07-10** at the owner's decision, without external
+counsel review. The pages were substantively tightened at the same time (B2C/B2B
+split, credit-expiry commitment, EU conformity remedies, indemnity, Estonian
+Consumer Disputes Committee ADR route, severability/assignment/force majeure,
+GDPR security + automated-decisions statements, concrete withdrawal mechanics).
+A counsel pass remains recommended before meaningful revenue — in particular the
+checkout must actually implement the express-consent + acknowledgment flow that
+`refunds.html` §4 describes.
 
 ## Stripe activation checklist
 
