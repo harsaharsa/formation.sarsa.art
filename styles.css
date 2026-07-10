@@ -1,0 +1,237 @@
+/* Sarsa Formation OÜ — shared styles.
+   Warm Sana palette: cream paper, warm ink, sage / terracotta / brass.
+   Cormorant Garamond (display) · Newsreader (body) · Work Sans (UI). */
+
+:root {
+  --paper: #f7f3ea;
+  --paper-2: #fffcf4;
+  --ink: #2b2722;
+  --ink-soft: #2b272299;
+  --muted: #5f574b;
+  --line: #2b272221;
+  --line-strong: #2b272242;
+  --accent: #6f8a4f;      /* sage */
+  --accent-deep: #4f6a37;
+  --rust: #a4442f;        /* terracotta — warnings / stop */
+  --brass: #b8893a;       /* gold */
+  --brass-soft: #c79a4a;
+
+  --display: "Cormorant Garamond", Georgia, serif;
+  --serif: "Newsreader", Georgia, serif;
+  --ui: "Work Sans", ui-sans-serif, system-ui, sans-serif;
+  --mono: ui-monospace, "SFMono-Regular", Menlo, monospace;
+
+  --maxw: 680px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --paper: #1a1714;
+    --paper-2: #211d19;
+    --ink: #f2ede3;
+    --ink-soft: #f2ede3cc;
+    --muted: #b6ab9a;
+    --line: #f2ede31f;
+    --line-strong: #f2ede33d;
+    --accent: #b8d07a;
+    --accent-deep: #cfe08f;
+    --rust: #e08b6f;
+    --brass: #d8b25f;
+    --brass-soft: #e6c477;
+  }
+}
+
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--serif);
+  font-size: 1.06rem;
+  line-height: 1.62;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  font-optical-sizing: auto;
+}
+
+.wrap {
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 2rem 1.5rem 3.5rem;
+}
+
+/* ---- Header / mark ---- */
+.top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-top: 1.4rem;
+}
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  color: var(--ink);
+  text-decoration: none;
+  border: 0;
+}
+.sigil { width: 42px; height: auto; color: var(--ink); display: block; }
+.sigil .glint path { stroke: var(--paper); }
+@media (prefers-reduced-motion: no-preference) {
+  .sigil .glint { animation: glint 6.5s ease-in-out infinite; transform-origin: center; }
+}
+@keyframes glint {
+  0%, 70%, 100% { opacity: 0.75; }
+  82% { opacity: 0.15; }
+  88% { opacity: 1; }
+}
+.brand .name {
+  font-family: var(--ui);
+  font-weight: 600;
+  font-size: 0.82rem;
+  letter-spacing: 0.02em;
+  color: var(--ink);
+}
+.brand .name small { display: block; color: var(--muted); font-weight: 400; font-size: 0.74rem; }
+
+.topnav { font-family: var(--ui); font-size: 0.8rem; display: flex; gap: 1.1rem; }
+.topnav a { color: var(--muted); }
+.topnav a:hover { color: var(--ink); }
+
+/* ---- Type ---- */
+h1, h2, h3 { font-family: var(--display); font-weight: 500; letter-spacing: -0.005em; }
+h1.hero {
+  font-size: clamp(3.2rem, 11vw, 5.4rem);
+  line-height: 0.98;
+  margin: 2.2rem 0 0;
+}
+.tagline {
+  font-family: var(--serif);
+  font-size: clamp(1.25rem, 3.2vw, 1.6rem);
+  line-height: 1.4;
+  color: var(--ink);
+  margin: 1.1rem 0 0;
+  max-width: 26ch;
+}
+.tagline em { font-style: italic; color: var(--accent-deep); }
+
+h2 { font-size: clamp(1.6rem, 4vw, 2.1rem); margin: 0 0 0.7rem; }
+h3 { font-size: 1.15rem; margin: 0 0 0.4rem; }
+
+p { margin: 0 0 1rem; }
+p:last-child { margin-bottom: 0; }
+.lead { font-size: 1.16rem; }
+
+section { margin-top: 3.2rem; }
+
+.eyebrow {
+  font-family: var(--ui);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--brass);
+  margin: 0 0 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+}
+.eyebrow::after { content: ""; flex: 1; height: 1px; background: var(--line); }
+
+a {
+  color: var(--accent-deep);
+  text-decoration: none;
+  border-bottom: 1px solid color-mix(in srgb, var(--accent-deep) 34%, transparent);
+  transition: color 0.15s ease, border-color 0.15s ease;
+}
+a:hover { color: var(--rust); border-bottom-color: var(--rust); }
+
+em.hot { font-style: normal; color: var(--rust); }
+strong { font-weight: 600; }
+
+blockquote {
+  margin: 1.4rem 0;
+  padding-left: 1.1rem;
+  border-left: 2px solid var(--accent);
+  font-style: italic;
+  color: var(--ink-soft);
+}
+
+/* ---- Buttons / CTA ---- */
+.cta {
+  display: inline-block;
+  font-family: var(--ui);
+  font-weight: 600;
+  font-size: 0.9rem;
+  letter-spacing: 0.01em;
+  color: var(--paper);
+  background: var(--ink);
+  border: 0;
+  border-radius: 999px;
+  padding: 0.72rem 1.5rem;
+  text-decoration: none;
+  transition: background 0.15s ease, transform 0.05s ease;
+}
+.cta:hover { background: var(--accent-deep); color: var(--paper); transform: translateY(-1px); }
+.cta.ghost { background: transparent; color: var(--ink); border: 1px solid var(--line-strong); }
+.cta.ghost:hover { border-color: var(--ink); background: transparent; color: var(--ink); }
+.cta-row { display: flex; flex-wrap: wrap; gap: 0.8rem; margin-top: 1.6rem; }
+
+/* ---- Record / imprint ---- */
+.record {
+  font-family: var(--mono);
+  font-size: 0.84rem;
+  line-height: 1.9;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: var(--paper-2);
+  padding: 1.15rem 1.35rem;
+}
+.record .row { display: grid; grid-template-columns: 8.5rem 1fr; gap: 0.2rem 1rem; }
+.record .k { color: var(--muted); }
+.record .v { color: var(--ink); }
+.record .todo { color: var(--rust); }
+.record .ok { color: var(--accent-deep); }
+
+/* ---- Notice banner (legal drafts) ---- */
+.notice {
+  font-family: var(--ui);
+  font-size: 0.82rem;
+  line-height: 1.5;
+  color: var(--ink);
+  background: color-mix(in srgb, var(--brass-soft) 22%, var(--paper));
+  border: 1px solid color-mix(in srgb, var(--brass) 45%, transparent);
+  border-radius: 10px;
+  padding: 0.85rem 1.1rem;
+  margin: 1.6rem 0 2.2rem;
+}
+.notice strong { color: var(--rust); }
+
+/* ---- Legal doc body ---- */
+.doc h2 { font-size: 1.4rem; margin-top: 2.4rem; }
+.doc h3 { font-family: var(--ui); font-weight: 600; font-size: 0.95rem; letter-spacing: 0.01em; margin-top: 1.6rem; }
+.doc { font-size: 1.0rem; }
+.doc ul { padding-left: 1.2rem; }
+.doc li { margin: 0.3rem 0; }
+.doc .meta { font-family: var(--ui); font-size: 0.8rem; color: var(--muted); }
+
+/* ---- Footer ---- */
+footer {
+  margin-top: 3.6rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  font-family: var(--ui);
+  font-size: 0.8rem;
+  color: var(--muted);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem 1.4rem;
+  align-items: center;
+  justify-content: space-between;
+}
+footer nav { display: flex; flex-wrap: wrap; gap: 0.4rem 1.1rem; }
+footer a { color: var(--muted); border-bottom-color: transparent; }
+footer a:hover { color: var(--ink); border-bottom-color: transparent; }
+footer .sig { display: inline-flex; align-items: center; gap: 0.5rem; }
