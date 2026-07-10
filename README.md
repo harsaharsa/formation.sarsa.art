@@ -30,11 +30,9 @@ glasses sigil.
 
 ## Fill these before going live
 
-One real unknown remains — the rest now carry concrete values.
-
-- **VAT number** — `contact.html` still flags "confirm VAT status." A newly
-  formed OÜ under the Estonian threshold need not be VAT-registered; confirm,
-  and if it is registered, add the number in `contact.html`.
+No unknowns remain in the copy. The company is **not VAT-registered**, stated in
+`contact.html` and `terms.html` §3. If it crosses the Estonian registration
+threshold, update both places and start charging VAT at checkout.
 
 Written in from the e-Business Register: **registry code 17290516**, registered
 **28 July 2025**, office **Lõõtsa tn 1a, 11415 Tallinn** — across the imprint
