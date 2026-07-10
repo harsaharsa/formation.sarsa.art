@@ -84,10 +84,19 @@
         <p>We share data with providers who process it on our behalf:</p>
         <ul>
           <li><strong>Anthropic</strong> — model inference (Claude) to deliver
-            Chora's functionality.</li>
+            Chora's functionality. Our primary processor.</li>
+          <li><strong>OpenRouter</strong> — a gateway used to route inference to
+            other model providers where a request calls for one.</li>
           <li><strong>Stripe</strong> — payment processing.</li>
-          <li><strong>Hosting / infrastructure</strong> —
-            <span style="color:var(--rust)">[provider(s) to confirm]</span>.</li>
+          <li><strong>GitHub</strong> — hosting of this website (GitHub Pages);
+            it receives your IP address and request metadata when you load these
+            pages.</li>
+          <li><strong>Google</strong> — this website loads typefaces from Google
+            Fonts, so your browser makes a request to Google and discloses your
+            IP address to them when a page loads. No cookie is set by this.</li>
+          <li><strong>Service hosting / infrastructure</strong> —
+            <span style="color:var(--rust)">[provider(s) for the Chora service
+            itself, to confirm]</span>.</li>
         </ul>
         <p>
           Some providers are outside the EEA; where so, transfers rely on
@@ -96,11 +105,20 @@
 
         <h2>4. Retention</h2>
         <p>
-          We keep personal data only as long as needed for the purposes above or
-          as required by law (e.g. accounting records). Retention periods are
-          <span style="color:var(--rust)">[to specify]</span>; you may request
-          deletion as below.
+          We keep personal data only as long as needed for the purposes above, or
+          as required by law. In practice:
         </p>
+        <ul>
+          <li><strong>Account data</strong> — while your account is open, and for
+            up to 12 months after you close it.</li>
+          <li><strong>Inputs, outputs, and service logs</strong> — up to 12
+            months, after which they are deleted or aggregated so they no longer
+            identify you.</li>
+          <li><strong>Payment and accounting records</strong> — seven years, as
+            required of Estonian companies by the Accounting Act
+            (<em>raamatupidamise seadus</em>).</li>
+        </ul>
+        <p>You may request deletion as described below.</p>
 
         <h2>5. Your rights</h2>
         <p>
@@ -114,9 +132,12 @@
 
         <h2>6. Cookies</h2>
         <p>
-          This site uses only what is necessary to function
-          <span style="color:var(--rust)">[confirm — add a cookie/consent notice
-          if analytics or non-essential cookies are introduced]</span>.
+          This website sets <strong>no cookies</strong> and runs no analytics or
+          tracking. It does load typefaces from Google Fonts, which means your
+          browser contacts Google and your IP address is visible to them — see
+          the sub-processors above. If we later introduce analytics or any
+          non-essential cookie, we will put a consent notice in place before it
+          runs.
         </p>
 
         <h2>7. Changes &amp; contact</h2>

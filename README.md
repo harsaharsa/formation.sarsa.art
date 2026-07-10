@@ -10,7 +10,7 @@ glasses sigil.
 
 | File | Purpose |
 |------|---------|
-| `index.html` | Chora landing — what it is, the Sana lesson, built on Claude, access & pay-as-you-go pricing, company imprint |
+| `index.html` | Chora landing — what it is, the Sana lesson, built on Claude, access & pricing (prepaid credits **or** subscription), company imprint |
 | `terms.html` | Terms of Service — **DRAFT** |
 | `privacy.html` | Privacy Policy (GDPR) — **DRAFT** |
 | `refunds.html` | Refund Policy — **DRAFT** |
@@ -21,22 +21,34 @@ glasses sigil.
 
 ## Deploy (GitHub Pages, same setup as sarsa.art)
 
-1. Create the repo `harsaharsa/formation.sarsa.art` and push this folder to `main`.
-2. Repo **Settings → Pages** → Source: `main` / root. Custom domain: `formation.sarsa.art` (the `CNAME` file already sets this).
-3. **DNS** (at whoever hosts sarsa.art's DNS): add a `CNAME` record
-   `formation` → `harsaharsa.github.io`. Wait for it to resolve, then tick
-   *Enforce HTTPS* in Pages.
+1. ✅ Repo `harsaharsa/formation.sarsa.art` created and pushed to `main`.
+2. ✅ Pages enabled: source `main` / root, custom domain `formation.sarsa.art`
+   (read from the `CNAME` file).
+3. ⬜ **DNS** — at **Porkbun** (where `sarsa.art` is hosted): add a `CNAME`
+   record `formation` → `harsaharsa.github.io`. Once it resolves, GitHub
+   verifies the domain and *Enforce HTTPS* becomes tickable.
 
 ## Fill these before going live
 
-- **Registry code** (registrikood) — in the imprint, `terms.html`, `privacy.html`, `contact.html`.
+Only three real unknowns remain — the rest now carry concrete defaults that
+counsel should confirm rather than invent.
+
+- **Registry code** (registrikood) — `index.html` imprint, `contact.html`,
+  `terms.html`, `privacy.html`.
 - **Registered office address** — same places.
 - **VAT number** — `contact.html`, if registered.
-- **Liability cap window** — `terms.html` §8 (`[3 / 6 / 12]` months).
-- **Retention periods / sub-processors / cookie notice** — `privacy.html`.
-- **Withdrawal-right days & response SLA** — `refunds.html`.
-- Then **remove the DRAFT banners** and get the legal pages reviewed by
-  Estonian/EU counsel.
+- **Service hosting provider** — `privacy.html` §3 (where Chora itself runs;
+  the *website* is on GitHub Pages and is already listed).
+
+Decided and written in: liability cap **12 months** (`terms.html` §8);
+withdrawal **14 days** and response SLA **5 business days** (`refunds.html`);
+retention **12 months / 12 months / 7 years** (`privacy.html` §4). Billing
+covers **prepaid credits and subscriptions** across `index`, `terms` §3, and
+`refunds`.
+
+Then **remove the DRAFT banners** — after Estonian/EU counsel reviews the four
+legal pages, not before. Do not submit to Stripe while the banners are up: a
+reviewer reading "not yet legally reviewed" on your Terms is a decline.
 
 ## Stripe activation checklist
 
@@ -45,8 +57,10 @@ glasses sigil.
       I can do for you.)*
 - [ ] Public business URL: `https://formation.sarsa.art`.
 - [ ] Reachable **Terms**, **Privacy**, **Refunds**, **Contact** — done (finalise drafts).
-- [ ] Clear description of what's sold and the **pricing model** (usage-based
-      prepaid credits) — done on the landing page.
+- [ ] Clear description of what's sold and the **pricing model** (prepaid
+      credits and subscriptions) — done on the landing page. If you enable
+      Stripe Billing, subscription cancellation and renewal terms are already
+      written into `terms.html` §3 and `refunds.html` §3.
 - [ ] Registered business name + address matching the imprint.
 - [ ] Statement descriptor + support email (`harri@regenesis.one`).
 

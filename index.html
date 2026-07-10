@@ -19,14 +19,14 @@
     <meta property="og:title" content="Chora — a foundry for synthetic professionals" />
     <meta
       property="og:description"
-      content="Small, exact AI kernels that answer deterministically, in milliseconds, over unlimited context, and never bluff. Built on Claude."
+      content="Small, exact AI kernels that answer deterministically, in milliseconds, over unlimited context, and never hallucinate. Built on Claude."
     />
 
     <meta property="twitter:card" content="summary" />
     <meta property="twitter:title" content="Chora — a foundry for synthetic professionals" />
     <meta
       property="twitter:description"
-      content="Small, exact AI kernels that answer deterministically, in milliseconds, over unlimited context, and never bluff."
+      content="Small, exact AI kernels that answer deterministically, in milliseconds, over unlimited context, and never hallucinate."
     />
 
     <link
@@ -43,14 +43,24 @@
         "email": "harri@regenesis.one",
         "founder": { "@type": "Person", "name": "Harri Sakari Sarsa" },
         "description": "Sarsa Formation OÜ builds Chora, a coherence substrate for AI, on Claude.",
-        "makesOffer": {
-          "@type": "Offer",
-          "name": "Chora — early access",
-          "priceSpecification": {
-            "@type": "PriceSpecification",
-            "description": "Usage-based. Pay only for what you use. No subscription."
+        "makesOffer": [
+          {
+            "@type": "Offer",
+            "name": "Chora — prepaid credits",
+            "priceSpecification": {
+              "@type": "PriceSpecification",
+              "description": "Usage-based. Buy a credit balance and spend it only as you use the Service. Nothing recurring."
+            }
+          },
+          {
+            "@type": "Offer",
+            "name": "Chora — subscription",
+            "priceSpecification": {
+              "@type": "UnitPriceSpecification",
+              "description": "Recurring plan with an included usage allowance, billed in advance each period. Cancel any time."
+            }
           }
-        }
+        ]
       }
     </script>
 
@@ -153,18 +163,24 @@
           <p class="eyebrow">Access &amp; pricing</p>
           <p>
             Chora is in active development and open by invitation while we
-            harden it. When access opens more widely, the model is simple:
+            harden it. When access opens more widely, you choose how to pay at
+            checkout — two ways, both plain:
           </p>
           <p class="lead">
-            <strong>Usage-based. You pay only for what you use. Nothing to
-            subscribe to, nothing to remember to cancel.</strong>
+            <strong>Prepaid credits.</strong> Buy a balance, spend it only as
+            you use the Service, top it up whenever. Nothing recurring, nothing
+            to remember to cancel.
+          </p>
+          <p class="lead">
+            <strong>Or a subscription.</strong> A recurring plan with an
+            included usage allowance, for steadier workloads. Cancel any time —
+            it runs to the end of the period you've paid for, then stops.
           </p>
           <p>
             Every account starts with a small credit — enough to find out
-            whether it's for you. Add more whenever you like. Billing is handled
-            by <a href="https://stripe.com" rel="noopener">Stripe</a>; the
-            details are in our
-            <a href="refunds.html">refund policy</a> and
+            whether it's for you. Billing is handled by
+            <a href="https://stripe.com" rel="noopener">Stripe</a>; the details
+            are in our <a href="refunds.html">refund policy</a> and
             <a href="terms.html">terms</a>.
           </p>
           <div class="cta-row">
