@@ -31,8 +31,30 @@ glasses sigil.
 ## Fill these before going live
 
 No unknowns remain in the copy. The company is **not VAT-registered**, stated in
-`contact.html` and `terms.html` §3. If it crosses the Estonian registration
-threshold, update both places and start charging VAT at checkout.
+`contact.html` and `terms.html` §3. Estonian registration becomes mandatory once
+taxable turnover passes **€40,000** in a calendar year (register within 3 working
+days); if that happens, update both places and charge VAT at checkout.
+
+## Legal claims and their sources (verified 2026-07-10)
+
+Checked against primary/official sources rather than drafted from memory:
+
+| Claim on the site | Source |
+|---|---|
+| Accounting records kept 7 years from end of the financial year | Accounting Act § 12, [Riigi Teataja](https://www.riigiteataja.ee/akt/110072025003) |
+| Consumer Disputes Committee, free for both sides, ~90 days | [TTJA](https://ttja.ee/en/about-consumer-disputes-committee) |
+| Trader must answer a consumer complaint within 15 days | [TTJA, consumer claims](https://www.ttja.ee/en/private-client/consumer-rights/consumer-rights-and-obligations/consumer-claims) |
+| Withdrawal = proportionate payment for a **digital service** (not total loss of the right, which applies to *digital content* on a non-tangible medium) | CRD 2011/83 Arts 14(3), 16(m); transposed in VÕS § 56 / § 48¹ |
+| VAT registration threshold €40,000 | [EMTA](https://www.emta.ee/en/business-client/taxes-and-payment/value-added-tax/registration-vat-payer/obligation-register-taxable-person) |
+
+**Deliberately NOT cited:** the EU Online Dispute Resolution platform. It was
+discontinued on 20 July 2025 (Regulation (EU) 2024/3228) and traders must remove
+references to it. Most boilerplate ToS templates still link it.
+
+Not verified against primary text: Riigi Teataja and EUR-Lex both serve
+JavaScript shells to non-browser clients, so the statutory wording above was read
+via search indexes of those pages and corroborating Estonian sources, not fetched
+directly.
 
 Written in from the e-Business Register: **registry code 17290516**, registered
 **28 July 2025**, office **Lõõtsa tn 1a, 11415 Tallinn** — across the imprint
